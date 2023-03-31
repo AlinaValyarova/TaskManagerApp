@@ -1,0 +1,136 @@
+﻿namespace TaskManagerApp
+{
+    partial class Login
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.LoginL = new System.Windows.Forms.Label();
+            this.UserEmailTB = new System.Windows.Forms.TextBox();
+            this.UserPasswordTB = new System.Windows.Forms.TextBox();
+            this.LoginBTN = new System.Windows.Forms.Button();
+            this.NoAccL = new System.Windows.Forms.Label();
+            this.NoAccLinkL = new System.Windows.Forms.LinkLabel();
+            this.SuspendLayout();
+            // 
+            // LoginL
+            // 
+            this.LoginL.AutoSize = true;
+            this.LoginL.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LoginL.ForeColor = System.Drawing.Color.SeaGreen;
+            this.LoginL.Location = new System.Drawing.Point(100, 104);
+            this.LoginL.Name = "LoginL";
+            this.LoginL.Size = new System.Drawing.Size(251, 36);
+            this.LoginL.TabIndex = 1;
+            this.LoginL.Text = "Войти в аккаунт";
+            // 
+            // UserEmailTB
+            // 
+            this.UserEmailTB.BackColor = System.Drawing.Color.LightGray;
+            this.UserEmailTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UserEmailTB.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UserEmailTB.ForeColor = System.Drawing.Color.Black;
+            this.UserEmailTB.Location = new System.Drawing.Point(70, 184);
+            this.UserEmailTB.Name = "UserEmailTB";
+            this.UserEmailTB.Size = new System.Drawing.Size(317, 26);
+            this.UserEmailTB.TabIndex = 3;
+            this.UserEmailTB.Text = "E-mail";
+            // 
+            // UserPasswordTB
+            // 
+            this.UserPasswordTB.BackColor = System.Drawing.Color.LightGray;
+            this.UserPasswordTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UserPasswordTB.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UserPasswordTB.ForeColor = System.Drawing.Color.Black;
+            this.UserPasswordTB.Location = new System.Drawing.Point(70, 233);
+            this.UserPasswordTB.Name = "UserPasswordTB";
+            this.UserPasswordTB.Size = new System.Drawing.Size(317, 26);
+            this.UserPasswordTB.TabIndex = 4;
+            this.UserPasswordTB.Text = "Пароль";
+            // 
+            // LoginBTN
+            // 
+            this.LoginBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginBTN.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LoginBTN.ForeColor = System.Drawing.Color.SeaGreen;
+            this.LoginBTN.Location = new System.Drawing.Point(118, 289);
+            this.LoginBTN.Name = "LoginBTN";
+            this.LoginBTN.Size = new System.Drawing.Size(221, 45);
+            this.LoginBTN.TabIndex = 5;
+            this.LoginBTN.Text = "Войти";
+            this.LoginBTN.UseVisualStyleBackColor = true;
+            this.LoginBTN.Click += new System.EventHandler(this.LoginBTN_Click);
+            // 
+            // NoAccL
+            // 
+            this.NoAccL.AutoSize = true;
+            this.NoAccL.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NoAccL.Location = new System.Drawing.Point(171, 348);
+            this.NoAccL.Name = "NoAccL";
+            this.NoAccL.Size = new System.Drawing.Size(102, 19);
+            this.NoAccL.TabIndex = 6;
+            this.NoAccL.Text = "Нет аккаунта?";
+            // 
+            // NoAccLinkL
+            // 
+            this.NoAccLinkL.AutoSize = true;
+            this.NoAccLinkL.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NoAccLinkL.Location = new System.Drawing.Point(155, 367);
+            this.NoAccLinkL.Name = "NoAccLinkL";
+            this.NoAccLinkL.Size = new System.Drawing.Size(144, 19);
+            this.NoAccLinkL.TabIndex = 7;
+            this.NoAccLinkL.TabStop = true;
+            this.NoAccLinkL.Text = "Зарегистрироваться";
+            this.NoAccLinkL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.NoAccLinkL_LinkClicked);
+            // 
+            // Login
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(449, 450);
+            this.Controls.Add(this.NoAccLinkL);
+            this.Controls.Add(this.NoAccL);
+            this.Controls.Add(this.LoginBTN);
+            this.Controls.Add(this.UserPasswordTB);
+            this.Controls.Add(this.UserEmailTB);
+            this.Controls.Add(this.LoginL);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "Login";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label LoginL;
+        private System.Windows.Forms.TextBox UserEmailTB;
+        private System.Windows.Forms.TextBox UserPasswordTB;
+        private System.Windows.Forms.Button LoginBTN;
+        private System.Windows.Forms.Label NoAccL;
+        private System.Windows.Forms.LinkLabel NoAccLinkL;
+    }
+}
