@@ -42,6 +42,7 @@
             this.PrivateTasksBtn = new System.Windows.Forms.Button();
             this.CommonTasksBtn = new System.Windows.Forms.Button();
             this.TodayTasksBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.MainMenuStrip.SuspendLayout();
             this.PanelTasks.SuspendLayout();
@@ -60,7 +61,7 @@
             this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStrip.Name = "MainMenuStrip";
             this.MainMenuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.MainMenuStrip.Size = new System.Drawing.Size(952, 59);
+            this.MainMenuStrip.Size = new System.Drawing.Size(946, 59);
             this.MainMenuStrip.TabIndex = 0;
             this.MainMenuStrip.Text = "menuStrip1";
             // 
@@ -108,6 +109,7 @@
             this.PanelTasks.Controls.Add(this.PrivateTasksBtn);
             this.PanelTasks.Controls.Add(this.CommonTasksBtn);
             this.PanelTasks.Controls.Add(this.TodayTasksBtn);
+            this.PanelTasks.Controls.Add(this.label2);
             this.PanelTasks.Location = new System.Drawing.Point(0, 54);
             this.PanelTasks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelTasks.Name = "PanelTasks";
@@ -181,20 +183,30 @@
             this.TodayTasksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TodayTasksBtn.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(8, 460);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "label2";
+            // 
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(266, 54);
+            this.checkedListBox1.Location = new System.Drawing.Point(281, 54);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(686, 514);
-            this.checkedListBox1.TabIndex = 5;
+            this.checkedListBox1.Size = new System.Drawing.Size(665, 514);
+            this.checkedListBox1.TabIndex = 6;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCoral;
-            this.ClientSize = new System.Drawing.Size(952, 558);
+            this.ClientSize = new System.Drawing.Size(946, 558);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.PanelTasks);
             this.Controls.Add(this.MainMenuStrip);
@@ -205,6 +217,7 @@
             this.MainMenuStrip.ResumeLayout(false);
             this.MainMenuStrip.PerformLayout();
             this.PanelTasks.ResumeLayout(false);
+            this.PanelTasks.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -223,6 +236,7 @@
         private System.Windows.Forms.Button ArchieveTasksBtn;
         private System.Windows.Forms.Button FutureTasksBtn;
         private System.Windows.Forms.Button PrivateTasksBtn;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }
