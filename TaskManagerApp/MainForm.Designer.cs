@@ -42,17 +42,15 @@
             this.PrivateTasksBtn = new System.Windows.Forms.Button();
             this.CommonTasksBtn = new System.Windows.Forms.Button();
             this.TodayTasksBtn = new System.Windows.Forms.Button();
-            this.MainDataGridView = new System.Windows.Forms.DataGridView();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.MainMenuStrip.SuspendLayout();
             this.PanelTasks.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // MainMenuStrip
             // 
             this.MainMenuStrip.AutoSize = false;
             this.MainMenuStrip.BackColor = System.Drawing.Color.LightCoral;
-            this.MainMenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.MainMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuMenuItem,
@@ -61,7 +59,8 @@
             this.AddMenuItem});
             this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStrip.Name = "MainMenuStrip";
-            this.MainMenuStrip.Size = new System.Drawing.Size(1071, 74);
+            this.MainMenuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.MainMenuStrip.Size = new System.Drawing.Size(952, 59);
             this.MainMenuStrip.TabIndex = 0;
             this.MainMenuStrip.Text = "menuStrip1";
             // 
@@ -109,18 +108,20 @@
             this.PanelTasks.Controls.Add(this.PrivateTasksBtn);
             this.PanelTasks.Controls.Add(this.CommonTasksBtn);
             this.PanelTasks.Controls.Add(this.TodayTasksBtn);
-            this.PanelTasks.Location = new System.Drawing.Point(0, 68);
+            this.PanelTasks.Location = new System.Drawing.Point(0, 54);
+            this.PanelTasks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelTasks.Name = "PanelTasks";
-            this.PanelTasks.Size = new System.Drawing.Size(293, 630);
+            this.PanelTasks.Size = new System.Drawing.Size(260, 504);
             this.PanelTasks.TabIndex = 1;
             // 
             // ArchieveTasksBtn
             // 
             this.ArchieveTasksBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.ArchieveTasksBtn.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ArchieveTasksBtn.Location = new System.Drawing.Point(12, 214);
+            this.ArchieveTasksBtn.Location = new System.Drawing.Point(11, 171);
+            this.ArchieveTasksBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ArchieveTasksBtn.Name = "ArchieveTasksBtn";
-            this.ArchieveTasksBtn.Size = new System.Drawing.Size(260, 33);
+            this.ArchieveTasksBtn.Size = new System.Drawing.Size(231, 26);
             this.ArchieveTasksBtn.TabIndex = 4;
             this.ArchieveTasksBtn.Text = "архив";
             this.ArchieveTasksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -131,9 +132,10 @@
             // 
             this.FutureTasksBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.FutureTasksBtn.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FutureTasksBtn.Location = new System.Drawing.Point(12, 163);
+            this.FutureTasksBtn.Location = new System.Drawing.Point(11, 130);
+            this.FutureTasksBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FutureTasksBtn.Name = "FutureTasksBtn";
-            this.FutureTasksBtn.Size = new System.Drawing.Size(260, 33);
+            this.FutureTasksBtn.Size = new System.Drawing.Size(231, 26);
             this.FutureTasksBtn.TabIndex = 3;
             this.FutureTasksBtn.Text = "предстоящие";
             this.FutureTasksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -143,9 +145,10 @@
             // 
             this.PrivateTasksBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.PrivateTasksBtn.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PrivateTasksBtn.Location = new System.Drawing.Point(69, 110);
+            this.PrivateTasksBtn.Location = new System.Drawing.Point(61, 88);
+            this.PrivateTasksBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PrivateTasksBtn.Name = "PrivateTasksBtn";
-            this.PrivateTasksBtn.Size = new System.Drawing.Size(203, 33);
+            this.PrivateTasksBtn.Size = new System.Drawing.Size(180, 26);
             this.PrivateTasksBtn.TabIndex = 2;
             this.PrivateTasksBtn.Text = "личные";
             this.PrivateTasksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -155,9 +158,10 @@
             // 
             this.CommonTasksBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CommonTasksBtn.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CommonTasksBtn.Location = new System.Drawing.Point(69, 71);
+            this.CommonTasksBtn.Location = new System.Drawing.Point(61, 57);
+            this.CommonTasksBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CommonTasksBtn.Name = "CommonTasksBtn";
-            this.CommonTasksBtn.Size = new System.Drawing.Size(203, 33);
+            this.CommonTasksBtn.Size = new System.Drawing.Size(180, 26);
             this.CommonTasksBtn.TabIndex = 1;
             this.CommonTasksBtn.Text = "общие";
             this.CommonTasksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -168,45 +172,39 @@
             // 
             this.TodayTasksBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.TodayTasksBtn.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TodayTasksBtn.Location = new System.Drawing.Point(12, 32);
+            this.TodayTasksBtn.Location = new System.Drawing.Point(11, 26);
+            this.TodayTasksBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TodayTasksBtn.Name = "TodayTasksBtn";
-            this.TodayTasksBtn.Size = new System.Drawing.Size(260, 33);
+            this.TodayTasksBtn.Size = new System.Drawing.Size(231, 26);
             this.TodayTasksBtn.TabIndex = 0;
             this.TodayTasksBtn.Text = "cегодня";
             this.TodayTasksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TodayTasksBtn.UseVisualStyleBackColor = true;
             // 
-            // MainDataGridView
+            // checkedListBox1
             // 
-            this.MainDataGridView.AllowUserToAddRows = false;
-            this.MainDataGridView.AllowUserToDeleteRows = false;
-            this.MainDataGridView.BackgroundColor = System.Drawing.Color.Orchid;
-            this.MainDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MainDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MainDataGridView.Location = new System.Drawing.Point(290, 68);
-            this.MainDataGridView.Name = "MainDataGridView";
-            this.MainDataGridView.ReadOnly = true;
-            this.MainDataGridView.RowHeadersWidth = 62;
-            this.MainDataGridView.RowTemplate.Height = 28;
-            this.MainDataGridView.Size = new System.Drawing.Size(781, 630);
-            this.MainDataGridView.TabIndex = 2;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(266, 54);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(686, 514);
+            this.checkedListBox1.TabIndex = 5;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCoral;
-            this.ClientSize = new System.Drawing.Size(1071, 698);
-            this.Controls.Add(this.MainDataGridView);
+            this.ClientSize = new System.Drawing.Size(952, 558);
+            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.PanelTasks);
             this.Controls.Add(this.MainMenuStrip);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Task Manager";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.MainMenuStrip.ResumeLayout(false);
             this.MainMenuStrip.PerformLayout();
             this.PanelTasks.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MainDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,7 +223,7 @@
         private System.Windows.Forms.Button ArchieveTasksBtn;
         private System.Windows.Forms.Button FutureTasksBtn;
         private System.Windows.Forms.Button PrivateTasksBtn;
-        private System.Windows.Forms.DataGridView MainDataGridView;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }
 

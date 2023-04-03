@@ -19,28 +19,35 @@ namespace TaskManagerApp
         ModifiedNew,
         Deleted,
     }
+
     public partial class MainForm : Form
     {
-        DataBase database = new DataBase(); 
+        public class Task
+        {
+            public int Task_Id { get; set; }
+            public int User_Id { get; set; }
+            public int? Team_Id { get; set; }
+            public int Status_Id { get; set; }
+            public DateTime Deadline { get; set; }
+            public DateTime? Finished { get; set; }
+            public string Description { get; set; }
+            public string Name { get; set; }
+            public int Everyday { get; set; }
+        }
+        DataBase database = new DataBase();
+        List<Task> tasks = new List<Task>();
+
         public MainForm()
         {
             InitializeComponent();
         }
+
 
         public void CreateColums()
         {
             
         }
 
-        private void ReadSingleRow(DataGridView dgw, IDataRecord record)
-        {
-            
-        }
-
-        private void RefreshDataGrid(DataGridView dgw)
-        {
-           
-        }
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -53,8 +60,38 @@ namespace TaskManagerApp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            CreateColums();
-            RefreshDataGrid(MainDataGridView);
+            using (SqlConnection conn = new SqlConnection())
+            {
+                conn.ConnectionString = "Data Source = HonkAppDataBase.mssql.somee.com;" + "Initial Catalog=HonkAppDataBase;" + "User id=cargoesbrr_SQLLogin_1;" + "Password=nchbzqmryy;";
+                conn.Open();
+
+                using (SqlCommand myQuery = new SqlCommand("SELECT * FROM Tasks;", conn))
+                using (SqlDataReader myReader = myQuery.ExecuteReader())
+                {
+                    while (myReader.Read())
+                    {
+                        var task = new Task();
+
+                        task.Task_Id = (int)myReader["Task_Id"];
+                        task.User_Id = (int)myReader["Task_Id"];
+                        //task.Team_Id = (int)myReader["Team_Id"];/////подумать, как сделать так, чтобы записывался null
+                        task.Status_Id = (int)myReader["Status_Id"];
+                        task.Deadline = (DateTime)myReader["Deadline"];
+                        //task.Finished = (DateTime?)myReader["Finished"];
+                        //task.Description = (string)myReader["Description"];
+                        task.Name = (string)myReader["Name"];
+                        task.Everyday = (int)myReader["Everyday"];
+
+                        tasks.Add(task);
+                    }
+                }
+            }
+            for (int i = 0; i < tasks.Count; i++)
+            {
+                Task task = new Task();
+                task = tasks[i];
+                checkedListBox1.Items.Add(task.Name); ///////////////checkedlistbox - checkedlistbox надо удалить datagridview и поставить на ее место его
+            }
 
         }
     }

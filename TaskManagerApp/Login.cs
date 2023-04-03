@@ -36,7 +36,7 @@ namespace TaskManagerApp
 
             DataTable dt = new DataTable();
 
-            string querystring = $"select id, email, userpassword from dbo.TMUsers where email = '{email}' and userpassword = {password}";
+            string querystring = $"select User_Id, Email, Password from dbo.Users where Email = '{email}' and Password = { password }";
 
             SqlCommand command = new SqlCommand(querystring, database.getConnection());
 
