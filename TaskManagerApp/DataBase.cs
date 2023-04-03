@@ -9,7 +9,7 @@ namespace TaskManagerApp
 {
     public class DataBase
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-ERMV197\SQLEXPRESS;Initial Catalog=MainBase;Integrated Security=True");
+        SqlConnection connection = new SqlConnection(@"Data Source = HonkAppDataBase.mssql.somee.com;" + "Initial Catalog=HonkAppDataBase;" + "User id=	cargoesbrr_SQLLogin_1;" + "Password=nchbzqmryy;");
         public void openConnetion()
         {
             if (connection.State == System.Data.ConnectionState.Closed)
