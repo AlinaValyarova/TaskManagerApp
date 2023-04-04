@@ -31,10 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.MenuMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HomeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AddMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.PanelTasks = new System.Windows.Forms.Panel();
             this.ArchieveTasksBtn = new System.Windows.Forms.Button();
@@ -43,7 +41,10 @@
             this.CommonTasksBtn = new System.Windows.Forms.Button();
             this.TodayTasksBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.AddMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenuStrip.SuspendLayout();
             this.PanelTasks.SuspendLayout();
             this.SuspendLayout();
@@ -54,23 +55,15 @@
             this.MainMenuStrip.BackColor = System.Drawing.Color.LightCoral;
             this.MainMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuMenuItem,
             this.HomeMenuItem,
             this.UserMenuItem,
             this.AddMenuItem});
             this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStrip.Name = "MainMenuStrip";
-            this.MainMenuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.MainMenuStrip.Padding = new System.Windows.Forms.Padding(100, 0, 0, 0);
             this.MainMenuStrip.Size = new System.Drawing.Size(946, 59);
             this.MainMenuStrip.TabIndex = 0;
             this.MainMenuStrip.Text = "menuStrip1";
-            // 
-            // MenuMenuItem
-            // 
-            this.MenuMenuItem.AutoSize = false;
-            this.MenuMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("MenuMenuItem.Image")));
-            this.MenuMenuItem.Name = "MenuMenuItem";
-            this.MenuMenuItem.Size = new System.Drawing.Size(70, 70);
             // 
             // HomeMenuItem
             // 
@@ -86,14 +79,6 @@
             this.UserMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("UserMenuItem.Image")));
             this.UserMenuItem.Name = "UserMenuItem";
             this.UserMenuItem.Size = new System.Drawing.Size(70, 70);
-            // 
-            // AddMenuItem
-            // 
-            this.AddMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.AddMenuItem.AutoSize = false;
-            this.AddMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AddMenuItem.Image")));
-            this.AddMenuItem.Name = "AddMenuItem";
-            this.AddMenuItem.Size = new System.Drawing.Size(70, 70);
             // 
             // contextMenuStrip1
             // 
@@ -196,10 +181,19 @@
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(281, 54);
+            this.checkedListBox1.Location = new System.Drawing.Point(292, 54);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(665, 514);
+            this.checkedListBox1.Size = new System.Drawing.Size(654, 480);
             this.checkedListBox1.TabIndex = 6;
+            // 
+            // AddMenuItem
+            // 
+            this.AddMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.AddMenuItem.AutoSize = false;
+            this.AddMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AddMenuItem.Image")));
+            this.AddMenuItem.Name = "AddMenuItem";
+            this.AddMenuItem.Size = new System.Drawing.Size(152, 70);
+            this.AddMenuItem.Click += new System.EventHandler(this.AddMenuItem_Click);
             // 
             // MainForm
             // 
@@ -226,10 +220,8 @@
 
         private System.Windows.Forms.MenuStrip MainMenuStrip;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem MenuMenuItem;
         private System.Windows.Forms.ToolStripMenuItem HomeMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UserMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem AddMenuItem;
         private System.Windows.Forms.Panel PanelTasks;
         private System.Windows.Forms.Button TodayTasksBtn;
         private System.Windows.Forms.Button CommonTasksBtn;
@@ -237,7 +229,10 @@
         private System.Windows.Forms.Button FutureTasksBtn;
         private System.Windows.Forms.Button PrivateTasksBtn;
         private System.Windows.Forms.Label label2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.ToolStripMenuItem AddMenuItem;
     }
 }
 
