@@ -24,7 +24,7 @@ namespace TaskManagerApp
 
         private void RegistrationBTN_Click(object sender, EventArgs e)
         {
-
+            DataTable table = new DataTable();
             DataBase dataBase = new DataBase();
             if (CheckingUser())
 
@@ -32,10 +32,11 @@ namespace TaskManagerApp
                 return;
             }
             var username = UserNameTB.Text;
+            var lastname = lastnameTB.Text;
             var email = UserEmailTB.Text;
             var password = UserPasswordTB.Text;
 
-            string queryregistration = $" insert into dbo.TMUsers(username, email, userpassword) values ('{username}', '{email}', {password})";
+            string queryregistration = $" insert into dbo.Users(User_Id, FirstName, LastName, Email, Password) values ({table.Rows.Count + 2},'{username}', '{lastname}','{email}',{password})";
 
             SqlCommand command = new SqlCommand(queryregistration, dataBase.getConnection());
 
@@ -61,7 +62,7 @@ namespace TaskManagerApp
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
-            string querychecking = $"select id, username, email, userpassword from dbo.TMUsers where email = '{email}'";
+            string querychecking = $"select User_Id, FirstName, Email, Password from dbo.Users where Email = '{email}'";
 
             SqlCommand command = new SqlCommand(querychecking, database.getConnection());
             adapter.SelectCommand = command;
@@ -77,6 +78,11 @@ namespace TaskManagerApp
                 return false;
             }
 
+
+        }
+
+        private void UserNameTB_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

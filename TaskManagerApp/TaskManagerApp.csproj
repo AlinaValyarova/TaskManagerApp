@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTaskForm.Designer.cs">
+      <DependentUpon>AddTaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTeamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTeamForm.Designer.cs">
+      <DependentUpon>AddTeamForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataBase.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -67,6 +79,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddTaskForm.resx">
+      <DependentUpon>AddTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTeamForm.resx">
+      <DependentUpon>AddTeamForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

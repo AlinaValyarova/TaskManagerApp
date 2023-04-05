@@ -29,14 +29,14 @@ namespace TaskManagerApp
 
         private void LoginBTN_Click(object sender, EventArgs e)
         {
-            var email = UserEmailTB.Text;
+            string email = UserEmailTB.Text;
             var password = UserPasswordTB.Text; 
 
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();   
 
             DataTable dt = new DataTable();
 
-            string querystring = $"select id, email, userpassword from dbo.TMUsers where email = '{email}' and userpassword = {password}";
+            string querystring = $"select User_Id, Email, Password from dbo.Users where Email = '{email}' and Password = { password }";
 
             SqlCommand command = new SqlCommand(querystring, database.getConnection());
 
@@ -46,7 +46,7 @@ namespace TaskManagerApp
             if(dt.Rows.Count == 1)
             {
                 MessageBox.Show("Вход выполнен!","Успешно!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                MainForm mainForm = new MainForm();
+                MainForm mainForm = new MainForm(email);
                 this.Hide();
                 mainForm.ShowDialog();
             }
