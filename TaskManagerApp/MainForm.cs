@@ -138,7 +138,7 @@ namespace TaskManagerApp
 
         private void AddMenuItem_Click(object sender, EventArgs e)
         {
-            AddTaskForm addTask = new AddTaskForm();
+            AddTaskForm addTask = new AddTaskForm(label2.Text);
             addTask.ShowDialog();
 
         }
