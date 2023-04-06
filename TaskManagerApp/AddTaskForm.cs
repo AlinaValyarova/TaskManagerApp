@@ -30,14 +30,11 @@ namespace TaskManagerApp
         {
             InitializeComponent();
             label1.Text = str;
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            DoToDTP.Format = DateTimePickerFormat.Short;
+            DoToDTP.ValueChanged += dateTimePicker1_ValueChanged;
             Teams.SelectedIndexChanged += Teams_SelectedIndexChanged;
             AddTaskBTN.Click += AddTaskBTN_Click;
-            Teams.Items.Add("Входящие");
-            Teams.Items.Add("+ Создать новую команду");
-            Teams.SelectedItem = "Входящие";
-           
+            
 
         }
 
@@ -67,8 +64,9 @@ namespace TaskManagerApp
 
         public void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            string date = dateTimePicker1.Value.ToString();
+            string date = DoToDTP.Value.ToString();
         }
+       
 
         public void AddTaskForm_Load(object sender, EventArgs e)
         {
@@ -124,23 +122,52 @@ namespace TaskManagerApp
         }
 
 
-
+        
         private void AddTaskBTN_Click(object sender, EventArgs e)
         {
+            int teams = 0;
+            switch (Teams.SelectedItem)
+            {
+                case "Личная":
+                    teams = 1;
+                    break;
+                case "Общая":
+                    teams = 2;
+                    break;
+                default:
+                    teams = 2;
+                    break;
+            }
+            int status = 0;
+            if(RepeatingCheckBox.Checked == true)
+            {
+                status = 1;
+            }
+            else { status = 0; }
             DataTable table = new DataTable();
             DataBase dataBase = new DataBase();
-            string queryregistration = $" insert into dbo.Tasks(Task_Id, User_Id, Team_Id, Status_id, Deadline, Description, Name, Everyday) values ({table.Rows.Count + 2},'{usrID}', '{teamIndex}',{1},'{dateTimePicker1.Value.ToString()}','{Description.Text}','{TaskName.Text}',{everyday})";
-            SqlCommand command = new SqlCommand(queryregistration, dataBase.getConnection());
+
+            DateTime result = DeadLintDTP.Value;
+            this.Text = result.ToString();
+            DateTime result1 = DoToDTP.Value;
+            this.Text = result1.ToString();
+
+            string taskname = TaskName.Text;
+            string description = Description.Text;
+
+            string addtask = $" insert into Tasks(User_Id, Team_Id, Status_Id, Deadline, Finished, Name, Description, Everyday) values (1, {teams}, 1 , '{result}', '{result1}', '{taskname}', '{description}', {status})";
+            SqlCommand command = new SqlCommand(addtask, dataBase.getConnection());
 
             dataBase.openConnetion();
 
             if (command.ExecuteNonQuery() == 1)
             {
-                MessageBox.Show("Регистрация прошла успешно!", "Успех!");
+                MessageBox.Show("Добавлена новая задача!", "Успех!");
+               
             }
             else
             {
-                MessageBox.Show("Аккаунт не создан");
+                MessageBox.Show("Задача не создана");
             }
             dataBase.closeConnetion();
 

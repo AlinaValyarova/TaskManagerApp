@@ -56,17 +56,40 @@ namespace TaskManagerApp
 
 
         }
-
-        public void CreateColums()
+        private void CreateColumns()
         {
-
+            MainDGV.Columns.Add("Name", "Задача");
+            MainDGV.Columns.Add("Description", "Описание");
+            MainDGV.Columns.Add("Status_Id", "Статус");
+            MainDGV.Columns.Add("Team_Id", "Группа");
+            MainDGV.Columns.Add("Deadline", "Дедлайн");
+            MainDGV.Columns.Add("Finished", "Закончить");
+            MainDGV.Columns.Add("Everyday", "Повторение");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ReadSingleRow(DataGridView dataGridView, IDataRecord record)
         {
-
+            dataGridView.Rows.Add(record.GetString(0), record.GetString(1), record.GetInt32(2), record.GetInt32(3), record.GetDateTime(4), record.GetDateTime(5), record.GetInt32(6));
         }
 
+        private void RefreshDataGrid(DataGridView dataGridView)
+        {
+            dataGridView.Rows.Clear();
+            string query1 = $"select Name, Description, Status_Id, Team_Id, Deadline, Finished, Everyday from Tasks";
+
+            SqlCommand command = new SqlCommand(query1, database.getConnection());
+
+            database.openConnetion();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while(reader.Read())
+            {
+                ReadSingleRow(dataGridView, reader);
+            }
+            reader.Close();
+
+        }
         private void ArchieveTasksBtn_Click(object sender, EventArgs e)
         {
 
@@ -75,64 +98,8 @@ namespace TaskManagerApp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
-
-            using (SqlConnection conn = new SqlConnection())
-            {
-                conn.ConnectionString = "Data Source = HonkAppDataBase.mssql.somee.com;" + "Initial Catalog=HonkAppDataBase;" + "User id=cargoesbrr_SQLLogin_1;" + "Password=nchbzqmryy;";
-                conn.Open();
-
-                using (SqlCommand myQuery = new SqlCommand("SELECT * FROM Users;", conn))
-                using (SqlDataReader myReader = myQuery.ExecuteReader())
-                {
-                    while (myReader.Read())
-                    {
-                        var usr = new User();
-
-                        usr.User_ID = (int)myReader["User_Id"];
-                        usr.Email = (string)myReader["Email"];
-                        if (usr.Email == label2.Text)
-                        {
-                            user = usr;
-                        }
-                    }
-                }
-
-                using (SqlCommand myQuery = new SqlCommand("SELECT * FROM Tasks;", conn))
-                using (SqlDataReader myReader = myQuery.ExecuteReader())
-                {
-                    while (myReader.Read())
-                    {
-                        var task = new Task();
-
-                        task.Task_Id = (int)myReader["Task_Id"];
-                        task.User_Id = (int)myReader["Task_Id"];
-                        //task.Team_Id = (int)myReader["Team_Id"];/////подумать, как сделать так, чтобы записывался null
-                        task.Status_Id = (int)myReader["Status_Id"];
-                        task.Deadline = (DateTime)myReader["Deadline"];
-                        //task.Finished = (DateTime?)myReader["Finished"];
-                        //task.Description = (string)myReader["Description"];
-                        task.Name = (string)myReader["Name"];
-                        task.Everyday = (int)myReader["Everyday"];
-                        //if (task.User_Id == ) ;
-                        //&& task.Deadline == DateTime.Now
-                        if (task.User_Id == user.User_ID)
-                        {
-                            tasks.Add(task);
-                        }
-
-                    }
-                }
-            }
-
-
-
-            for (int i = 0; i < tasks.Count; i++)
-            {
-                Task task = new Task();
-                task = tasks[i];
-                checkedListBox1.Items.Add(task.Name);
-            }
+            CreateColumns();
+            RefreshDataGrid(MainDGV);
 
         }
 

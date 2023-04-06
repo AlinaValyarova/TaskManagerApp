@@ -117,4 +117,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>$(SolutionDir)\BuildProcess\PreBuildEvents.bat  "$(TargetPath)"  "$(TargetFileName)"  "$(TargetDir)"  "$(TargetName)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
