@@ -109,5 +109,12 @@ namespace TaskManagerApp
             addTask.ShowDialog();
 
         }
+
+        private void выйтиИзПрофиляToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login lg = new Login();
+            lg.ShowDialog();
+        }
     }
 }

@@ -41,7 +41,7 @@
             // 
             this.LoginL.AutoSize = true;
             this.LoginL.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LoginL.ForeColor = System.Drawing.Color.SeaGreen;
+            this.LoginL.ForeColor = System.Drawing.Color.LightSkyBlue;
             this.LoginL.Location = new System.Drawing.Point(89, 83);
             this.LoginL.Name = "LoginL";
             this.LoginL.Size = new System.Drawing.Size(219, 31);
@@ -78,7 +78,7 @@
             // 
             this.LoginBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoginBTN.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LoginBTN.ForeColor = System.Drawing.Color.SeaGreen;
+            this.LoginBTN.ForeColor = System.Drawing.Color.LightSkyBlue;
             this.LoginBTN.Location = new System.Drawing.Point(105, 231);
             this.LoginBTN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LoginBTN.Name = "LoginBTN";
