@@ -55,5 +55,11 @@ namespace TaskManagerApp
                 MessageBox.Show("Такого аккаунта не существует!", "Не существует!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgotPassword fp = new ForgotPassword();
+            fp.ShowDialog();
+        }
     }
 }

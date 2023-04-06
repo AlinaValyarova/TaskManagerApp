@@ -45,6 +45,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.MainDGV = new System.Windows.Forms.DataGridView();
+            this.выйтиИзПрофиляToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenuStrip.SuspendLayout();
             this.PanelTasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainDGV)).BeginInit();
@@ -53,8 +54,7 @@
             // MainMenuStrip
             // 
             this.MainMenuStrip.AutoSize = false;
-            this.MainMenuStrip.BackColor = System.Drawing.Color.LightCoral;
-            this.MainMenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.MainMenuStrip.BackColor = System.Drawing.Color.LightSkyBlue;
             this.MainMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.HomeMenuItem,
@@ -62,8 +62,8 @@
             this.AddMenuItem});
             this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStrip.Name = "MainMenuStrip";
-            this.MainMenuStrip.Padding = new System.Windows.Forms.Padding(112, 0, 0, 0);
-            this.MainMenuStrip.Size = new System.Drawing.Size(1064, 74);
+            this.MainMenuStrip.Padding = new System.Windows.Forms.Padding(100, 0, 0, 0);
+            this.MainMenuStrip.Size = new System.Drawing.Size(946, 59);
             this.MainMenuStrip.TabIndex = 0;
             this.MainMenuStrip.Text = "menuStrip1";
             // 
@@ -78,9 +78,11 @@
             // 
             this.UserMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.UserMenuItem.AutoSize = false;
+            this.UserMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.выйтиИзПрофиляToolStripMenuItem});
             this.UserMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("UserMenuItem.Image")));
             this.UserMenuItem.Name = "UserMenuItem";
-            this.UserMenuItem.Size = new System.Drawing.Size(70, 70);
+            this.UserMenuItem.Size = new System.Drawing.Size(152, 70);
             // 
             // AddMenuItem
             // 
@@ -106,20 +108,20 @@
             this.PanelTasks.Controls.Add(this.CommonTasksBtn);
             this.PanelTasks.Controls.Add(this.TodayTasksBtn);
             this.PanelTasks.Controls.Add(this.label2);
-            this.PanelTasks.Location = new System.Drawing.Point(0, 68);
+            this.PanelTasks.Location = new System.Drawing.Point(0, 54);
             this.PanelTasks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelTasks.Name = "PanelTasks";
-            this.PanelTasks.Size = new System.Drawing.Size(292, 630);
+            this.PanelTasks.Size = new System.Drawing.Size(260, 504);
             this.PanelTasks.TabIndex = 1;
             // 
             // ArchieveTasksBtn
             // 
             this.ArchieveTasksBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.ArchieveTasksBtn.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ArchieveTasksBtn.Location = new System.Drawing.Point(12, 214);
+            this.ArchieveTasksBtn.Location = new System.Drawing.Point(11, 171);
             this.ArchieveTasksBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ArchieveTasksBtn.Name = "ArchieveTasksBtn";
-            this.ArchieveTasksBtn.Size = new System.Drawing.Size(260, 32);
+            this.ArchieveTasksBtn.Size = new System.Drawing.Size(231, 26);
             this.ArchieveTasksBtn.TabIndex = 4;
             this.ArchieveTasksBtn.Text = "архив";
             this.ArchieveTasksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -130,10 +132,10 @@
             // 
             this.FutureTasksBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.FutureTasksBtn.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FutureTasksBtn.Location = new System.Drawing.Point(12, 162);
+            this.FutureTasksBtn.Location = new System.Drawing.Point(11, 130);
             this.FutureTasksBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FutureTasksBtn.Name = "FutureTasksBtn";
-            this.FutureTasksBtn.Size = new System.Drawing.Size(260, 32);
+            this.FutureTasksBtn.Size = new System.Drawing.Size(231, 26);
             this.FutureTasksBtn.TabIndex = 3;
             this.FutureTasksBtn.Text = "предстоящие";
             this.FutureTasksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -143,10 +145,10 @@
             // 
             this.PrivateTasksBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.PrivateTasksBtn.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PrivateTasksBtn.Location = new System.Drawing.Point(69, 110);
+            this.PrivateTasksBtn.Location = new System.Drawing.Point(61, 88);
             this.PrivateTasksBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PrivateTasksBtn.Name = "PrivateTasksBtn";
-            this.PrivateTasksBtn.Size = new System.Drawing.Size(202, 32);
+            this.PrivateTasksBtn.Size = new System.Drawing.Size(180, 26);
             this.PrivateTasksBtn.TabIndex = 2;
             this.PrivateTasksBtn.Text = "личные";
             this.PrivateTasksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -156,10 +158,10 @@
             // 
             this.CommonTasksBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.CommonTasksBtn.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CommonTasksBtn.Location = new System.Drawing.Point(69, 71);
+            this.CommonTasksBtn.Location = new System.Drawing.Point(61, 57);
             this.CommonTasksBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CommonTasksBtn.Name = "CommonTasksBtn";
-            this.CommonTasksBtn.Size = new System.Drawing.Size(202, 32);
+            this.CommonTasksBtn.Size = new System.Drawing.Size(180, 26);
             this.CommonTasksBtn.TabIndex = 1;
             this.CommonTasksBtn.Text = "общие";
             this.CommonTasksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -168,10 +170,10 @@
             // 
             this.TodayTasksBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.TodayTasksBtn.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TodayTasksBtn.Location = new System.Drawing.Point(12, 32);
+            this.TodayTasksBtn.Location = new System.Drawing.Point(11, 26);
             this.TodayTasksBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TodayTasksBtn.Name = "TodayTasksBtn";
-            this.TodayTasksBtn.Size = new System.Drawing.Size(260, 32);
+            this.TodayTasksBtn.Size = new System.Drawing.Size(231, 26);
             this.TodayTasksBtn.TabIndex = 0;
             this.TodayTasksBtn.Text = "cегодня";
             this.TodayTasksBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -181,9 +183,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(9, 575);
+            this.label2.Location = new System.Drawing.Point(8, 460);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.Size = new System.Drawing.Size(46, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "label2";
             // 
@@ -194,20 +196,28 @@
             this.MainDGV.BackgroundColor = System.Drawing.SystemColors.Control;
             this.MainDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MainDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MainDGV.Location = new System.Drawing.Point(340, 68);
+            this.MainDGV.Location = new System.Drawing.Point(302, 54);
+            this.MainDGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MainDGV.Name = "MainDGV";
             this.MainDGV.ReadOnly = true;
             this.MainDGV.RowHeadersWidth = 62;
             this.MainDGV.RowTemplate.Height = 28;
-            this.MainDGV.Size = new System.Drawing.Size(724, 630);
+            this.MainDGV.Size = new System.Drawing.Size(644, 504);
             this.MainDGV.TabIndex = 2;
+            // 
+            // выйтиИзПрофиляToolStripMenuItem
+            // 
+            this.выйтиИзПрофиляToolStripMenuItem.Name = "выйтиИзПрофиляToolStripMenuItem";
+            this.выйтиИзПрофиляToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.выйтиИзПрофиляToolStripMenuItem.Text = "выйти из профиля";
+            this.выйтиИзПрофиляToolStripMenuItem.Click += new System.EventHandler(this.выйтиИзПрофиляToolStripMenuItem_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCoral;
-            this.ClientSize = new System.Drawing.Size(1064, 698);
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.ClientSize = new System.Drawing.Size(946, 558);
             this.Controls.Add(this.MainDGV);
             this.Controls.Add(this.PanelTasks);
             this.Controls.Add(this.MainMenuStrip);
@@ -241,6 +251,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.ToolStripMenuItem AddMenuItem;
         private System.Windows.Forms.DataGridView MainDGV;
+        private System.Windows.Forms.ToolStripMenuItem выйтиИзПрофиляToolStripMenuItem;
     }
 }
 
