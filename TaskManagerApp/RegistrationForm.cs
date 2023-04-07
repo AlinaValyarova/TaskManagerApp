@@ -85,5 +85,25 @@ namespace TaskManagerApp
         {
 
         }
+
+        private void UserNameTB_MouseDown(object sender, MouseEventArgs e)
+        {
+            UserNameTB.Clear();
+        }
+
+        private void lastnameTB_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastnameTB.Clear();
+        }
+
+        private void UserEmailTB_MouseDown(object sender, MouseEventArgs e)
+        {
+            UserNameTB.Clear();
+        }
+
+        private void UserPasswordTB_MouseDown(object sender, MouseEventArgs e)
+        {
+            UserPasswordTB.Clear();
+        }
     }
 }

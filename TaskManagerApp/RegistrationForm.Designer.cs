@@ -60,6 +60,7 @@
             this.UserNameTB.TabIndex = 1;
             this.UserNameTB.Text = "Имя пользователя";
             this.UserNameTB.TextChanged += new System.EventHandler(this.UserNameTB_TextChanged);
+            this.UserNameTB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UserNameTB_MouseDown);
             // 
             // UserEmailTB
             // 
@@ -73,6 +74,7 @@
             this.UserEmailTB.Size = new System.Drawing.Size(282, 22);
             this.UserEmailTB.TabIndex = 2;
             this.UserEmailTB.Text = "E-mail";
+            this.UserEmailTB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UserEmailTB_MouseDown);
             // 
             // UserPasswordTB
             // 
@@ -86,6 +88,7 @@
             this.UserPasswordTB.Size = new System.Drawing.Size(282, 22);
             this.UserPasswordTB.TabIndex = 3;
             this.UserPasswordTB.Text = "Пароль";
+            this.UserPasswordTB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UserPasswordTB_MouseDown);
             // 
             // RegistrationBTN
             // 
@@ -113,6 +116,7 @@
             this.lastnameTB.Size = new System.Drawing.Size(282, 22);
             this.lastnameTB.TabIndex = 5;
             this.lastnameTB.Text = "Фамилия пользователя";
+            this.lastnameTB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lastnameTB_MouseDown);
             // 
             // RegistrationForm
             // 

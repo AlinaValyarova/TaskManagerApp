@@ -60,6 +60,7 @@
             this.UserEmailTB.Size = new System.Drawing.Size(282, 22);
             this.UserEmailTB.TabIndex = 3;
             this.UserEmailTB.Text = "E-mail";
+            this.UserEmailTB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UserEmailTB_MouseDown);
             // 
             // UserPasswordTB
             // 
@@ -73,6 +74,7 @@
             this.UserPasswordTB.Size = new System.Drawing.Size(282, 22);
             this.UserPasswordTB.TabIndex = 4;
             this.UserPasswordTB.Text = "Пароль";
+            this.UserPasswordTB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UserPasswordTB_MouseDown);
             // 
             // LoginBTN
             // 
