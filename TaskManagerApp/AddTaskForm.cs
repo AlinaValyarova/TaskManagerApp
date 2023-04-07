@@ -204,38 +204,51 @@ namespace TaskManagerApp
 
                 string taskname = TaskName.Text;
                 string description = Description.Text;
-                
+
 
                 string personemail = PersonEmailGeneralTask.Text;
 
                 string query = $"select User_ID from Users where Email = '{personemail}'";
                 int person;
-                SqlCommand command1 = new SqlCommand(query, dataBase.getConnection());
-                reader = command1.ExecuteReader();
-                reader.Read();
-                Fill();
-                void Fill()
-                {
-                    person = reader.GetInt32(0);
+
+                try {
+                    
+                    SqlCommand command1 = new SqlCommand(query, dataBase.getConnection());
+                    reader = command1.ExecuteReader();
+                    reader.Read();
+                    Fill();
+                    void Fill()
+                    {
+                        person = reader.GetInt32(0);
+                    }
+                    dataBase.closeConnetion();
+
+                    string addtask = $" insert into Tasks(User_Id, Team_Id, Status_Id, Deadline, Finished, Name, Description, Everyday) values ({person}, {teams}, 1 , '{result}', '{result1}', '{taskname}', '{description}', {status})";
+                    SqlCommand command = new SqlCommand(addtask, dataBase.getConnection());
+
+                    dataBase.openConnetion();
+
+                    if (command.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("Добавлена новая задача!", "Успех!");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Задача не создана");
+                    }
+                    dataBase.closeConnetion();
                 }
-                dataBase.closeConnetion();
+                catch(System.InvalidOperationException)
+                { MessageBox.Show("Задача не создана. Вы ввели несуществующего пользователя"); }
+                
+
+               
+                    
+                
 
 
-                string addtask = $" insert into Tasks(User_Id, Team_Id, Status_Id, Deadline, Finished, Name, Description, Everyday) values ({person}, {teams}, 1 , '{result}', '{result1}', '{taskname}', '{description}', {status})";
-                SqlCommand command = new SqlCommand(addtask, dataBase.getConnection());
-
-                dataBase.openConnetion();
-
-                if (command.ExecuteNonQuery() == 1)
-                {
-                    MessageBox.Show("Добавлена новая задача!", "Успех!");
-
-                }
-                else
-                {
-                    MessageBox.Show("Задача не создана");
-                }
-                dataBase.closeConnetion();
+                
             }
 
 

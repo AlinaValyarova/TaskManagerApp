@@ -53,6 +53,7 @@ namespace TaskManagerApp
 
             label2.Text = str;
             AddMenuItem.Click += AddMenuItem_Click;
+            
 
 
 
@@ -67,6 +68,18 @@ namespace TaskManagerApp
             MainDGV.Columns.Add("Deadline", "Дедлайн");
             MainDGV.Columns.Add("Finished", "Закончить");
             MainDGV.Columns.Add("Everyday", "Повторение");
+
+
+            MainDGV.ReadOnly = false;
+
+            MainDGV.Columns[0].ReadOnly = true;
+            MainDGV.Columns[1].ReadOnly = true;
+            MainDGV.Columns[3].ReadOnly = true;
+
+            MainDGV.Columns[4].ReadOnly = true;
+            MainDGV.Columns[5].ReadOnly = true;
+            MainDGV.Columns[6].ReadOnly = true;
+
         }
 
         private void ReadSingleRow(DataGridView dataGridView, IDataRecord record)
@@ -135,7 +148,7 @@ namespace TaskManagerApp
         }
         private void Reader3(DataGridView dataGridView, int i)
         {
-            string query1 = $"select User_Id, Name, Description, StatusName, TeamName, Deadline, Finished, Everyday  from Tasks ta join Statuses sa on ta.Status_ID = sa.idstatus join Teams te on ta.Team_Id = te.Team_ID  where User_Id = {i} and StatusName = 'Not Done'  and Deadline > GetDate()";
+            string query1 = $"select User_Id, Name, Description, StatusName, TeamName, Deadline, Finished, Everyday  from Tasks ta join Statuses sa on ta.Status_ID = sa.idstatus join Teams te on ta.Team_Id = te.Team_ID  where User_Id = {i} and StatusName = 'Not Done'  and Deadline < GetDate()";
 
             SqlCommand command = new SqlCommand(query1, database.getConnection());
 
@@ -386,6 +399,47 @@ namespace TaskManagerApp
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Change()
+        {
+            string some = MainDGV.CurrentRow.Cells[0].Value.ToString();
+            string some1 = MainDGV.CurrentRow.Cells[2].Value.ToString();
+
+            DataBase dataBase = new DataBase();
+            SqlDataReader reader;
+
+            dataBase.openConnetion();
+
+            int f = 1;
+
+           
+
+            if (some1 == "Done")
+            {
+                f = 1;
+            }
+
+            else if(some1 == "Not Done")
+            {
+                f = 2;
+            }
+
+
+            string query = $"update Tasks set Status_ID = {f} where Name = '{some}' ";
+            int person;
+            SqlCommand command1 = new SqlCommand(query, dataBase.getConnection());
+            reader = command1.ExecuteReader();
+            reader.Read();
+            dataBase.closeConnetion();
+
+
+
+        }
+
+        private void buttonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Change();
         }
     }
 

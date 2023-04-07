@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Security.Cryptography.X509Certificates;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TaskManagerApp
 {
@@ -34,7 +35,9 @@ namespace TaskManagerApp
         {
             
             email = UserEmailTB.Text;
+            UserPasswordTB.UseSystemPasswordChar = true;
             var password = UserPasswordTB.Text; 
+            
 
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();   
 
@@ -74,6 +77,11 @@ namespace TaskManagerApp
         private void UserPasswordTB_MouseDown(object sender, MouseEventArgs e)
         {
             UserPasswordTB.Clear();
+        }
+
+        private void UserPasswordTB_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

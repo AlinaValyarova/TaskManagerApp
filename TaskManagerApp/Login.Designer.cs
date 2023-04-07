@@ -42,9 +42,9 @@
             this.LoginL.AutoSize = true;
             this.LoginL.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LoginL.ForeColor = System.Drawing.Color.LightSkyBlue;
-            this.LoginL.Location = new System.Drawing.Point(89, 83);
+            this.LoginL.Location = new System.Drawing.Point(100, 104);
             this.LoginL.Name = "LoginL";
-            this.LoginL.Size = new System.Drawing.Size(219, 31);
+            this.LoginL.Size = new System.Drawing.Size(251, 36);
             this.LoginL.TabIndex = 1;
             this.LoginL.Text = "Войти в аккаунт";
             // 
@@ -54,10 +54,10 @@
             this.UserEmailTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UserEmailTB.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UserEmailTB.ForeColor = System.Drawing.Color.Black;
-            this.UserEmailTB.Location = new System.Drawing.Point(62, 147);
+            this.UserEmailTB.Location = new System.Drawing.Point(70, 184);
             this.UserEmailTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UserEmailTB.Name = "UserEmailTB";
-            this.UserEmailTB.Size = new System.Drawing.Size(282, 22);
+            this.UserEmailTB.Size = new System.Drawing.Size(317, 26);
             this.UserEmailTB.TabIndex = 3;
             this.UserEmailTB.Text = "E-mail";
             this.UserEmailTB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UserEmailTB_MouseDown);
@@ -68,12 +68,13 @@
             this.UserPasswordTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UserPasswordTB.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UserPasswordTB.ForeColor = System.Drawing.Color.Black;
-            this.UserPasswordTB.Location = new System.Drawing.Point(62, 186);
+            this.UserPasswordTB.Location = new System.Drawing.Point(70, 232);
             this.UserPasswordTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UserPasswordTB.Name = "UserPasswordTB";
-            this.UserPasswordTB.Size = new System.Drawing.Size(282, 22);
+            this.UserPasswordTB.Size = new System.Drawing.Size(317, 26);
             this.UserPasswordTB.TabIndex = 4;
             this.UserPasswordTB.Text = "Пароль";
+            this.UserPasswordTB.TextChanged += new System.EventHandler(this.UserPasswordTB_TextChanged);
             this.UserPasswordTB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UserPasswordTB_MouseDown);
             // 
             // LoginBTN
@@ -81,10 +82,10 @@
             this.LoginBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoginBTN.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LoginBTN.ForeColor = System.Drawing.Color.LightSkyBlue;
-            this.LoginBTN.Location = new System.Drawing.Point(105, 231);
+            this.LoginBTN.Location = new System.Drawing.Point(118, 289);
             this.LoginBTN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LoginBTN.Name = "LoginBTN";
-            this.LoginBTN.Size = new System.Drawing.Size(196, 36);
+            this.LoginBTN.Size = new System.Drawing.Size(220, 45);
             this.LoginBTN.TabIndex = 5;
             this.LoginBTN.Text = "Войти";
             this.LoginBTN.UseVisualStyleBackColor = true;
@@ -94,9 +95,9 @@
             // 
             this.NoAccL.AutoSize = true;
             this.NoAccL.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NoAccL.Location = new System.Drawing.Point(152, 278);
+            this.NoAccL.Location = new System.Drawing.Point(171, 348);
             this.NoAccL.Name = "NoAccL";
-            this.NoAccL.Size = new System.Drawing.Size(88, 16);
+            this.NoAccL.Size = new System.Drawing.Size(102, 19);
             this.NoAccL.TabIndex = 6;
             this.NoAccL.Text = "Нет аккаунта?";
             // 
@@ -104,9 +105,9 @@
             // 
             this.NoAccLinkL.AutoSize = true;
             this.NoAccLinkL.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NoAccLinkL.Location = new System.Drawing.Point(138, 294);
+            this.NoAccLinkL.Location = new System.Drawing.Point(155, 368);
             this.NoAccLinkL.Name = "NoAccLinkL";
-            this.NoAccLinkL.Size = new System.Drawing.Size(124, 16);
+            this.NoAccLinkL.Size = new System.Drawing.Size(144, 19);
             this.NoAccLinkL.TabIndex = 7;
             this.NoAccLinkL.TabStop = true;
             this.NoAccLinkL.Text = "Зарегистрироваться";
@@ -115,9 +116,9 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(138, 321);
+            this.linkLabel1.Location = new System.Drawing.Point(155, 401);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(118, 17);
+            this.linkLabel1.Size = new System.Drawing.Size(136, 20);
             this.linkLabel1.TabIndex = 8;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Забыли пароль?";
@@ -125,9 +126,9 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 360);
+            this.ClientSize = new System.Drawing.Size(449, 450);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.NoAccLinkL);
             this.Controls.Add(this.NoAccL);
