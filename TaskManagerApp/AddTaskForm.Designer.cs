@@ -44,19 +44,17 @@ namespace TaskManagerApp
             // 
             // DoToDTP
             // 
-            this.DoToDTP.Location = new System.Drawing.Point(439, 166);
-            this.DoToDTP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DoToDTP.Location = new System.Drawing.Point(390, 133);
             this.DoToDTP.Name = "DoToDTP";
-            this.DoToDTP.Size = new System.Drawing.Size(224, 26);
+            this.DoToDTP.Size = new System.Drawing.Size(200, 22);
             this.DoToDTP.TabIndex = 3;
             // 
             // RepeatingCheckBox
             // 
             this.RepeatingCheckBox.AutoSize = true;
-            this.RepeatingCheckBox.Location = new System.Drawing.Point(454, 103);
-            this.RepeatingCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.RepeatingCheckBox.Location = new System.Drawing.Point(404, 82);
             this.RepeatingCheckBox.Name = "RepeatingCheckBox";
-            this.RepeatingCheckBox.Size = new System.Drawing.Size(220, 24);
+            this.RepeatingCheckBox.Size = new System.Drawing.Size(189, 21);
             this.RepeatingCheckBox.TabIndex = 4;
             this.RepeatingCheckBox.Text = "Повторяющаяся задача";
             this.RepeatingCheckBox.UseVisualStyleBackColor = true;
@@ -64,20 +62,18 @@ namespace TaskManagerApp
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(331, 324);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Location = new System.Drawing.Point(294, 259);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 40);
+            this.button1.Size = new System.Drawing.Size(108, 32);
             this.button1.TabIndex = 6;
             this.button1.Text = "Отмена";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // AddTaskBTN
             // 
-            this.AddTaskBTN.Location = new System.Drawing.Point(479, 317);
-            this.AddTaskBTN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AddTaskBTN.Location = new System.Drawing.Point(426, 254);
             this.AddTaskBTN.Name = "AddTaskBTN";
-            this.AddTaskBTN.Size = new System.Drawing.Size(184, 54);
+            this.AddTaskBTN.Size = new System.Drawing.Size(164, 43);
             this.AddTaskBTN.TabIndex = 7;
             this.AddTaskBTN.Text = "Добавить задачу";
             this.AddTaskBTN.UseVisualStyleBackColor = true;
@@ -90,72 +86,76 @@ namespace TaskManagerApp
             this.Teams.Items.AddRange(new object[] {
             "Личная",
             "Общая"});
-            this.Teams.Location = new System.Drawing.Point(527, 23);
-            this.Teams.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Teams.Location = new System.Drawing.Point(468, 18);
             this.Teams.Name = "Teams";
-            this.Teams.Size = new System.Drawing.Size(136, 28);
+            this.Teams.Size = new System.Drawing.Size(121, 24);
             this.Teams.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(-14, 251);
+            this.label1.Location = new System.Drawing.Point(-12, 201);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 15;
             this.label1.Text = "label1";
             // 
             // DeadLintDTP
             // 
-            this.DeadLintDTP.Location = new System.Drawing.Point(439, 223);
-            this.DeadLintDTP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DeadLintDTP.Location = new System.Drawing.Point(390, 178);
             this.DeadLintDTP.Name = "DeadLintDTP";
-            this.DeadLintDTP.Size = new System.Drawing.Size(224, 26);
+            this.DeadLintDTP.Size = new System.Drawing.Size(200, 22);
             this.DeadLintDTP.TabIndex = 16;
             // 
             // TaskName
             // 
             this.TaskName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TaskName.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.TaskName.Location = new System.Drawing.Point(12, 23);
+            this.TaskName.Location = new System.Drawing.Point(11, 18);
+            this.TaskName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TaskName.Name = "TaskName";
-            this.TaskName.Size = new System.Drawing.Size(430, 44);
+            this.TaskName.Size = new System.Drawing.Size(383, 38);
             this.TaskName.TabIndex = 17;
             this.TaskName.Text = "Название задачи";
+            this.TaskName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TaskName_MouseDown);
             // 
             // Description
             // 
             this.Description.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Description.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.Description.Location = new System.Drawing.Point(12, 97);
+            this.Description.Location = new System.Drawing.Point(11, 78);
+            this.Description.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Description.Name = "Description";
-            this.Description.Size = new System.Drawing.Size(430, 30);
+            this.Description.Size = new System.Drawing.Size(383, 26);
             this.Description.TabIndex = 18;
             this.Description.Text = "Описание";
+            this.Description.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Description_MouseDown);
             // 
             // PersonGTaskL
             // 
             this.PersonGTaskL.AutoSize = true;
-            this.PersonGTaskL.Location = new System.Drawing.Point(12, 198);
+            this.PersonGTaskL.Location = new System.Drawing.Point(11, 158);
             this.PersonGTaskL.Name = "PersonGTaskL";
-            this.PersonGTaskL.Size = new System.Drawing.Size(274, 20);
+            this.PersonGTaskL.Size = new System.Drawing.Size(228, 17);
             this.PersonGTaskL.TabIndex = 19;
-            this.PersonGTaskL.Text = "Ваш компаньон для общей задачи";
+            this.PersonGTaskL.Text = "С кем будете выполнять задачу?";
+            this.PersonGTaskL.Click += new System.EventHandler(this.PersonGTaskL_Click);
             // 
             // PersonEmailGeneralTask
             // 
-            this.PersonEmailGeneralTask.Location = new System.Drawing.Point(16, 251);
+            this.PersonEmailGeneralTask.Location = new System.Drawing.Point(14, 201);
+            this.PersonEmailGeneralTask.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PersonEmailGeneralTask.Name = "PersonEmailGeneralTask";
-            this.PersonEmailGeneralTask.Size = new System.Drawing.Size(270, 26);
+            this.PersonEmailGeneralTask.Size = new System.Drawing.Size(240, 22);
             this.PersonEmailGeneralTask.TabIndex = 20;
             // 
             // AddTaskForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(686, 393);
+            this.ClientSize = new System.Drawing.Size(610, 314);
             this.Controls.Add(this.PersonEmailGeneralTask);
             this.Controls.Add(this.PersonGTaskL);
             this.Controls.Add(this.Description);
@@ -167,7 +167,6 @@ namespace TaskManagerApp
             this.Controls.Add(this.button1);
             this.Controls.Add(this.RepeatingCheckBox);
             this.Controls.Add(this.DoToDTP);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AddTaskForm";
             this.Text = "AddTaskForm";
             this.ResumeLayout(false);

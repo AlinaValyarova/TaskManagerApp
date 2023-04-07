@@ -65,5 +65,15 @@ namespace TaskManagerApp
             ForgotPassword fp = new ForgotPassword();
             fp.ShowDialog();
         }
+
+        private void UserEmailTB_MouseDown(object sender, MouseEventArgs e)
+        {
+            UserEmailTB.Clear();
+        }
+
+        private void UserPasswordTB_MouseDown(object sender, MouseEventArgs e)
+        {
+            UserPasswordTB.Clear();
+        }
     }
 }

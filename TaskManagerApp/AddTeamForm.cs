@@ -16,5 +16,15 @@ namespace TaskManagerApp
         {
             InitializeComponent();
         }
+
+        private void TaskName_MouseDown(object sender, MouseEventArgs e)
+        {
+            TaskName.Clear();
+        }
+
+        private void Description_MouseDown(object sender, MouseEventArgs e)
+        {
+            Description.Clear();
+        }
     }
 }

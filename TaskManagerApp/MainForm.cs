@@ -55,7 +55,9 @@ namespace TaskManagerApp
             AddMenuItem.Click += AddMenuItem_Click;
 
 
+
         }
+
         private void CreateColumns()
         {
             MainDGV.Columns.Add("Name", "Задача");
@@ -298,6 +300,10 @@ namespace TaskManagerApp
         {
             CreateColumns();
             RefreshDataGrid(MainDGV);
+            if (MainDGV.Rows.Count == 0)
+            {
+                panel1.Visible = true;
+            }
 
         }
 
@@ -355,7 +361,12 @@ namespace TaskManagerApp
 
         }
 
-        
+
+        private void MainForm_sizeChanged(object sender, EventArgs e)
+        {
+            MainDGV.Size = new Size(500, 300);
+        }
+
 
         private void TodayTasksBtn_Click(object sender, EventArgs e)
         {
@@ -366,5 +377,16 @@ namespace TaskManagerApp
         {
             Future(MainDGV);
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }

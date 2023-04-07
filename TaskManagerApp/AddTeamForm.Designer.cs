@@ -46,6 +46,7 @@ namespace TaskManagerApp
             this.TaskName.Size = new System.Drawing.Size(591, 50);
             this.TaskName.TabIndex = 2;
             this.TaskName.Text = "Название задачи";
+            this.TaskName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TaskName_MouseDown);
             // 
             // Description
             // 
@@ -56,6 +57,7 @@ namespace TaskManagerApp
             this.Description.Size = new System.Drawing.Size(372, 23);
             this.Description.TabIndex = 3;
             this.Description.Text = "Введите описание";
+            this.Description.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Description_MouseDown);
             // 
             // Teams
             // 

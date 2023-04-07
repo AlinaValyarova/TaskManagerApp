@@ -241,6 +241,21 @@ namespace TaskManagerApp
 
         }
 
-       
+        
+
+        private void PersonGTaskL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TaskName_MouseDown(object sender, MouseEventArgs e)
+        {
+            TaskName.Clear();
+        }
+
+        private void Description_MouseDown(object sender, MouseEventArgs e)
+        {
+            Description.Clear();
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace TaskManagerApp
         {
             InitializeComponent();
             UserEmailTB.KeyPress += UserEmailTB_KeyPress;
+            LoginBTN.Click += LoginBTN_Click;
         }
 
         private void ForgotPassword_Load_1(object sender, EventArgs e)
@@ -116,5 +117,9 @@ namespace TaskManagerApp
 
         }
 
+        private void UserEmailTB_MouseDown(object sender, MouseEventArgs e)
+        {
+            UserEmailTB.Clear();
+        }
     }
 }

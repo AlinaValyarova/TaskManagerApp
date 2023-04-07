@@ -40,11 +40,11 @@ namespace TaskManagerApp
             this.LoginL.AutoSize = true;
             this.LoginL.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LoginL.ForeColor = System.Drawing.Color.LightSkyBlue;
-            this.LoginL.Location = new System.Drawing.Point(92, 45);
+            this.LoginL.Location = new System.Drawing.Point(52, 45);
             this.LoginL.Name = "LoginL";
-            this.LoginL.Size = new System.Drawing.Size(219, 31);
+            this.LoginL.Size = new System.Drawing.Size(282, 31);
             this.LoginL.TabIndex = 2;
-            this.LoginL.Text = "Войти в аккаунт";
+            this.LoginL.Text = "Напоминание пароля";
             // 
             // UserEmailTB
             // 
@@ -58,18 +58,19 @@ namespace TaskManagerApp
             this.UserEmailTB.Size = new System.Drawing.Size(282, 22);
             this.UserEmailTB.TabIndex = 4;
             this.UserEmailTB.Text = "E-mail";
+            this.UserEmailTB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UserEmailTB_MouseDown);
             // 
             // LoginBTN
             // 
             this.LoginBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoginBTN.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LoginBTN.ForeColor = System.Drawing.Color.LightSkyBlue;
-            this.LoginBTN.Location = new System.Drawing.Point(98, 178);
+            this.LoginBTN.Location = new System.Drawing.Point(64, 168);
             this.LoginBTN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LoginBTN.Name = "LoginBTN";
-            this.LoginBTN.Size = new System.Drawing.Size(196, 36);
+            this.LoginBTN.Size = new System.Drawing.Size(252, 36);
             this.LoginBTN.TabIndex = 6;
-            this.LoginBTN.Text = "Войти";
+            this.LoginBTN.Text = "Отправить пароль";
             this.LoginBTN.UseVisualStyleBackColor = true;
             // 
             // label2
