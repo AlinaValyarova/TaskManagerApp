@@ -121,10 +121,11 @@ namespace TaskManagerApp
 
         }
 
-
         
+
         private void AddTaskBTN_Click(object sender, EventArgs e)
         {
+            
             int teams = 0;
             switch (Teams.SelectedItem)
             {
@@ -135,7 +136,7 @@ namespace TaskManagerApp
                     teams = 2;
                     break;
                 default:
-                    teams = 2;
+                    teams = 1;
                     break;
             }
             int status = 0;
@@ -147,30 +148,99 @@ namespace TaskManagerApp
             DataTable table = new DataTable();
             DataBase dataBase = new DataBase();
 
-            DateTime result = DeadLintDTP.Value;
-            this.Text = result.ToString();
-            DateTime result1 = DoToDTP.Value;
-            this.Text = result1.ToString();
-
-            string taskname = TaskName.Text;
-            string description = Description.Text;
-
-            string addtask = $" insert into Tasks(User_Id, Team_Id, Status_Id, Deadline, Finished, Name, Description, Everyday) values (1, {teams}, 1 , '{result}', '{result1}', '{taskname}', '{description}', {status})";
-            SqlCommand command = new SqlCommand(addtask, dataBase.getConnection());
-
-            dataBase.openConnetion();
-
-            if (command.ExecuteNonQuery() == 1)
+            if (teams == 1)
             {
-                MessageBox.Show("Добавлена новая задача!", "Успех!");
-               
+                SqlDataReader reader;
+
+                dataBase.openConnetion();
+
+
+                string query = $"select User_ID from Users where Email = '{Login.email}'";
+                int person;
+                SqlCommand command1 = new SqlCommand(query, dataBase.getConnection());
+                reader = command1.ExecuteReader();
+                reader.Read();
+                Fill();
+                void Fill()
+                {
+                    person = reader.GetInt32(0);
+                }
+                dataBase.closeConnetion();
+
+                DateTime result = DeadLintDTP.Value;
+                this.Text = result.ToString();
+                DateTime result1 = DoToDTP.Value;
+                this.Text = result1.ToString();
+
+                string taskname = TaskName.Text;
+                string description = Description.Text;
+
+                string addtask = $" insert into Tasks(User_Id, Team_Id, Status_Id, Deadline, Finished, Name, Description, Everyday) values ({person}, {teams}, 2 , '{result}', '{result1}', '{taskname}', '{description}', {status})";
+                SqlCommand command = new SqlCommand(addtask, dataBase.getConnection());
+
+                dataBase.openConnetion();
+
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Добавлена новая задача!", "Успех!");
+
+                }
+                else
+                {
+                    MessageBox.Show("Задача не создана");
+                }
+                dataBase.closeConnetion();
             }
-            else
+            else if(teams == 2)
             {
-                MessageBox.Show("Задача не создана");
+                SqlDataReader reader;
+
+                dataBase.openConnetion();
+
+                DateTime result = DeadLintDTP.Value;
+                this.Text = result.ToString();
+                DateTime result1 = DoToDTP.Value;
+                this.Text = result1.ToString();
+
+                string taskname = TaskName.Text;
+                string description = Description.Text;
+                
+
+                string personemail = PersonEmailGeneralTask.Text;
+
+                string query = $"select User_ID from Users where Email = '{personemail}'";
+                int person;
+                SqlCommand command1 = new SqlCommand(query, dataBase.getConnection());
+                reader = command1.ExecuteReader();
+                reader.Read();
+                Fill();
+                void Fill()
+                {
+                    person = reader.GetInt32(0);
+                }
+                dataBase.closeConnetion();
+
+
+                string addtask = $" insert into Tasks(User_Id, Team_Id, Status_Id, Deadline, Finished, Name, Description, Everyday) values ({person}, {teams}, 1 , '{result}', '{result1}', '{taskname}', '{description}', {status})";
+                SqlCommand command = new SqlCommand(addtask, dataBase.getConnection());
+
+                dataBase.openConnetion();
+
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Добавлена новая задача!", "Успех!");
+
+                }
+                else
+                {
+                    MessageBox.Show("Задача не создана");
+                }
+                dataBase.closeConnetion();
             }
-            dataBase.closeConnetion();
+
 
         }
+
+       
     }
 }
