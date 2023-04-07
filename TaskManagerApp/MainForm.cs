@@ -69,12 +69,26 @@ namespace TaskManagerApp
 
         private void ReadSingleRow(DataGridView dataGridView, IDataRecord record)
         {
-            dataGridView.Rows.Add(record.GetString(0), record.GetString(1), record.GetInt32(2), record.GetInt32(3), record.GetDateTime(4), record.GetDateTime(5), record.GetInt32(6));
+            dataGridView.Rows.Add(record.GetString(0), record.GetString(1), record.GetString(2), record.GetString(3), record.GetDateTime(4), record.GetDateTime(5), record.GetInt32(6));
         }
+        private void ArchReader(DataGridView dataGridView, int i)
+        {
+            string query1 = $"select Name, Description, StatusName, TeamName, Deadline, Finished, Everyday  from Tasks ta join Statuses sa on ta.Status_ID = sa.idstatus join Teams te on ta.Team_Id = te.Team_ID  where User_Id = {i} and StatusName = 'Done'";
 
+            SqlCommand command = new SqlCommand(query1, database.getConnection());
+
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+
+            while (reader.Read())
+            {
+                ReadSingleRow(dataGridView, reader);
+            }
+            reader.Close();
+        }
         private void Reader(DataGridView dataGridView, int i)
         {
-            string query1 = $"select User_Id, Name, Description, StatusName, TeamName, Deadline, Finished, Everyday  from Tasks ta join Statuses sa on ta.Status_ID = sa.idstatus join Teams te on ta.Team_Id = te.Team_ID  where User_Id = {i} and StatusName = 'Not Done'";
+            string query1 = $"select Name, Description, StatusName, TeamName, Deadline, Finished, Everyday  from Tasks ta join Statuses sa on ta.Status_ID = sa.idstatus join Teams te on ta.Team_Id = te.Team_ID  where User_Id = {i} and StatusName = 'Not Done'";
 
             SqlCommand command = new SqlCommand(query1, database.getConnection());
 
@@ -89,7 +103,7 @@ namespace TaskManagerApp
         }
         private void Reader1(DataGridView dataGridView, int i)
         {
-            string query1 = $"select User_Id, Name, Description, StatusName, TeamName, Deadline, Finished, Everyday  from Tasks ta join Statuses sa on ta.Status_ID = sa.idstatus join Teams te on ta.Team_Id = te.Team_ID  where User_Id = {i} and StatusName = 'Not Done' ' and TeamName = 'Private'";
+            string query1 = $"select Name, Description, StatusName, TeamName, Deadline, Finished, Everyday  from Tasks ta join Statuses sa on ta.Status_ID = sa.idstatus join Teams te on ta.Team_Id = te.Team_ID  where User_Id = {i} and StatusName = 'Not Done' and TeamName = 'Private'";
 
             SqlCommand command = new SqlCommand(query1, database.getConnection());
 
@@ -104,7 +118,37 @@ namespace TaskManagerApp
         }
         private void Reader2(DataGridView dataGridView, int i)
         {
-            string query1 = $"select User_Id, Name, Description, StatusName, TeamName, Deadline, Finished, Everyday  from Tasks ta join Statuses sa on ta.Status_ID = sa.idstatus join Teams te on ta.Team_Id = te.Team_ID  where User_Id = {i} and StatusName = 'Not Done' ' and TeamName = 'Common'";
+            string query1 = $"select User_Id, Name, Description, StatusName, TeamName, Deadline, Finished, Everyday  from Tasks ta join Statuses sa on ta.Status_ID = sa.idstatus join Teams te on ta.Team_Id = te.Team_ID  where User_Id = {i} and StatusName = 'Not Done'  and TeamName = 'Common'";
+
+            SqlCommand command = new SqlCommand(query1, database.getConnection());
+
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+
+            while (reader.Read())
+            {
+                ReadSingleRow(dataGridView, reader);
+            }
+            reader.Close();
+        }
+        private void Reader3(DataGridView dataGridView, int i)
+        {
+            string query1 = $"select User_Id, Name, Description, StatusName, TeamName, Deadline, Finished, Everyday  from Tasks ta join Statuses sa on ta.Status_ID = sa.idstatus join Teams te on ta.Team_Id = te.Team_ID  where User_Id = {i} and StatusName = 'Not Done'  and Deadline > GetDate()";
+
+            SqlCommand command = new SqlCommand(query1, database.getConnection());
+
+            SqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+
+            while (reader.Read())
+            {
+                ReadSingleRow(dataGridView, reader);
+            }
+            reader.Close();
+        }
+        private void Reader4(DataGridView dataGridView, int i)
+        {
+            string query1 = $"select User_Id, Name, Description, StatusName, TeamName, Deadline, Finished, Everyday  from Tasks ta join Statuses sa on ta.Status_ID = sa.idstatus join Teams te on ta.Team_Id = te.Team_ID  where User_Id = {i} and StatusName = 'Not Done'  and Deadline = GetDate()";
 
             SqlCommand command = new SqlCommand(query1, database.getConnection());
 
@@ -166,19 +210,7 @@ namespace TaskManagerApp
                 person = reader.GetInt32(0);
             }
             dataBase.closeConnetion();
-            string query1 = $"select Name, Description, Status_ID, Team_Id, Deadline, Finished, Everyday from Tasks where User_Id = {person} and Status_ID = 1";
-
-            SqlCommand command = new SqlCommand(query1, database.getConnection());
-
-            database.openConnetion();
-
-            SqlDataReader reader1 = command.ExecuteReader();
-
-            while (reader1.Read())
-            {
-                ReadSingleRow(dataGridView, reader1);
-            }
-            reader1.Close();
+            ArchReader(MainDGV, person);
 
 
         }
@@ -253,19 +285,8 @@ namespace TaskManagerApp
                 person = reader.GetInt32(0);
             }
             dataBase.closeConnetion();
-            string query1 = $"select Name, Description, Status_Id, Team_Id, Deadline, Finished, Everyday from Tasks where User_Id = {person} and Team_Id = 1 and Status_ID = 2 and Deadline > getdate()";
+            Reader3(MainDGV, person);
 
-            SqlCommand command = new SqlCommand(query1, database.getConnection());
-
-            database.openConnetion();
-
-            SqlDataReader reader1 = command.ExecuteReader();
-
-            while (reader1.Read())
-            {
-                ReadSingleRow(dataGridView, reader1);
-            }
-            reader1.Close();
         }
         private void ArchieveTasksBtn_Click(object sender, EventArgs e)
         {
@@ -329,19 +350,8 @@ namespace TaskManagerApp
                 person = reader.GetInt32(0);
             }
             dataBase.closeConnetion();
-            string query1 = $"select Name, Description, Status_Id, Team_Id, Deadline, Finished, Everyday from Tasks where User_Id = {person} and Status_ID = 2 and  Deadline = getdate()";
-
-            SqlCommand command = new SqlCommand(query1, database.getConnection());
-
-            database.openConnetion();
-
-            SqlDataReader reader1 = command.ExecuteReader();
-
-            while (reader1.Read())
-            {
-                ReadSingleRow(dataGridView, reader1);
-            }
-            reader1.Close();
+            Reader4(dataGridView, person);
+            
 
         }
 
@@ -354,7 +364,7 @@ namespace TaskManagerApp
 
         private void FutureTasksBtn_Click(object sender, EventArgs e)
         {
-            Archieve(MainDGV);
+            Future(MainDGV);
         }
     }
 }
