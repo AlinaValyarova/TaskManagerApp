@@ -38,11 +38,13 @@ namespace TaskManagerApp
             this.DeadLintDTP = new System.Windows.Forms.DateTimePicker();
             this.TaskName = new System.Windows.Forms.TextBox();
             this.Description = new System.Windows.Forms.TextBox();
+            this.PersonGTaskL = new System.Windows.Forms.Label();
+            this.PersonEmailGeneralTask = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // DoToDTP
             // 
-            this.DoToDTP.Location = new System.Drawing.Point(12, 170);
+            this.DoToDTP.Location = new System.Drawing.Point(439, 166);
             this.DoToDTP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DoToDTP.Name = "DoToDTP";
             this.DoToDTP.Size = new System.Drawing.Size(224, 26);
@@ -51,7 +53,7 @@ namespace TaskManagerApp
             // RepeatingCheckBox
             // 
             this.RepeatingCheckBox.AutoSize = true;
-            this.RepeatingCheckBox.Location = new System.Drawing.Point(378, 204);
+            this.RepeatingCheckBox.Location = new System.Drawing.Point(454, 103);
             this.RepeatingCheckBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RepeatingCheckBox.Name = "RepeatingCheckBox";
             this.RepeatingCheckBox.Size = new System.Drawing.Size(220, 24);
@@ -62,7 +64,7 @@ namespace TaskManagerApp
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(251, 289);
+            this.button1.Location = new System.Drawing.Point(331, 324);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 40);
@@ -72,7 +74,7 @@ namespace TaskManagerApp
             // 
             // AddTaskBTN
             // 
-            this.AddTaskBTN.Location = new System.Drawing.Point(406, 275);
+            this.AddTaskBTN.Location = new System.Drawing.Point(479, 317);
             this.AddTaskBTN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddTaskBTN.Name = "AddTaskBTN";
             this.AddTaskBTN.Size = new System.Drawing.Size(184, 54);
@@ -88,7 +90,7 @@ namespace TaskManagerApp
             this.Teams.Items.AddRange(new object[] {
             "Личная",
             "Общая"});
-            this.Teams.Location = new System.Drawing.Point(0, 299);
+            this.Teams.Location = new System.Drawing.Point(527, 23);
             this.Teams.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Teams.Name = "Teams";
             this.Teams.Size = new System.Drawing.Size(136, 28);
@@ -106,7 +108,7 @@ namespace TaskManagerApp
             // 
             // DeadLintDTP
             // 
-            this.DeadLintDTP.Location = new System.Drawing.Point(12, 221);
+            this.DeadLintDTP.Location = new System.Drawing.Point(439, 223);
             this.DeadLintDTP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DeadLintDTP.Name = "DeadLintDTP";
             this.DeadLintDTP.Size = new System.Drawing.Size(224, 26);
@@ -132,12 +134,30 @@ namespace TaskManagerApp
             this.Description.TabIndex = 18;
             this.Description.Text = "Описание";
             // 
+            // PersonGTaskL
+            // 
+            this.PersonGTaskL.AutoSize = true;
+            this.PersonGTaskL.Location = new System.Drawing.Point(12, 198);
+            this.PersonGTaskL.Name = "PersonGTaskL";
+            this.PersonGTaskL.Size = new System.Drawing.Size(274, 20);
+            this.PersonGTaskL.TabIndex = 19;
+            this.PersonGTaskL.Text = "Ваш компаньон для общей задачи";
+            // 
+            // PersonEmailGeneralTask
+            // 
+            this.PersonEmailGeneralTask.Location = new System.Drawing.Point(16, 251);
+            this.PersonEmailGeneralTask.Name = "PersonEmailGeneralTask";
+            this.PersonEmailGeneralTask.Size = new System.Drawing.Size(270, 26);
+            this.PersonEmailGeneralTask.TabIndex = 20;
+            // 
             // AddTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(604, 331);
+            this.ClientSize = new System.Drawing.Size(686, 393);
+            this.Controls.Add(this.PersonEmailGeneralTask);
+            this.Controls.Add(this.PersonGTaskL);
             this.Controls.Add(this.Description);
             this.Controls.Add(this.TaskName);
             this.Controls.Add(this.DeadLintDTP);
@@ -165,5 +185,7 @@ namespace TaskManagerApp
         private System.Windows.Forms.DateTimePicker DeadLintDTP;
         private System.Windows.Forms.TextBox TaskName;
         private System.Windows.Forms.TextBox Description;
+        private System.Windows.Forms.Label PersonGTaskL;
+        private System.Windows.Forms.TextBox PersonEmailGeneralTask;
     }
 }

@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TaskManagerApp
 {
     public partial class Login : Form
     {
+        
+
         DataBase database = new DataBase();
         public Login()
         {
@@ -26,10 +29,11 @@ namespace TaskManagerApp
             this.Hide();
             registrationForm.ShowDialog();
         }
-
+        public static string email;
         private void LoginBTN_Click(object sender, EventArgs e)
         {
-            string email = UserEmailTB.Text;
+            
+            email = UserEmailTB.Text;
             var password = UserPasswordTB.Text; 
 
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();   

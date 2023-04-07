@@ -36,7 +36,7 @@ namespace TaskManagerApp
             var email = UserEmailTB.Text;
             var password = UserPasswordTB.Text;
 
-            string queryregistration = $" insert into dbo.Users(User_Id, FirstName, LastName, Email, Password) values ({table.Rows.Count + 2},'{username}', '{lastname}','{email}',{password})";
+            string queryregistration = $" insert into Users( FirstName, LastName, Email, Password) values ('{username}', '{lastname}','{email}',{password})";
 
             SqlCommand command = new SqlCommand(queryregistration, dataBase.getConnection());
 
